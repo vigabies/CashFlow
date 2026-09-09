@@ -1,4 +1,5 @@
-﻿using CashFlow.Communication.Requests;
+﻿using CashFlow.Communication.Enums;
+using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using System.Data;
 
@@ -11,7 +12,7 @@ public class RegisterExpenseUseCase
 
         Validate(request);
 
-        return new ResponseRegisteredExpenseJson;
+        return new ResponseRegisteredExpenseJson();
     }
 
     private void Validate(RequestRegisterExpenseJson request)
@@ -32,6 +33,11 @@ public class RegisterExpenseUseCase
             throw new ArgumentException("Expenses cannot be for the future");
         }
 
-
+        var paymenteTypeIsValid = Enum.IsDefined(typeof(PaymentType), request.PaymentType);
+        if (paymenteTypeIsValid ==  false)
+        {
+            throw new ArgumentException("Paymente Type isn't valid");
+        }
+                
     }
 }
