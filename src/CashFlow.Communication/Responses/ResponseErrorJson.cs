@@ -2,5 +2,5 @@
 
 public class ResponseErrorJson
 {
-    public string ErrorMessage { get; set; }
+    public required string ErrorMessage { get; set; }
 }
