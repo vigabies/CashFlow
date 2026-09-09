@@ -18,5 +18,7 @@ public class RegisterExpenseUseCase
         var validator = new RegisterExpenseValidator();
 
         var result = validator.Validate(request);
+
+        var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();
     }
 }
