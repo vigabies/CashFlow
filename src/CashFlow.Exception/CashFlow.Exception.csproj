@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="ExcepetionsBase\**" />
+    <EmbeddedResource Remove="ExcepetionsBase\**" />
+    <None Remove="ExcepetionsBase\**" />
+  </ItemGroup>
+
 </Project>
