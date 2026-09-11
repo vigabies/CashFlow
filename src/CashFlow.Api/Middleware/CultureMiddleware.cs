@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Api.Middleware;
+﻿using System.Globalization;
+
+namespace CashFlow.Api.Middleware;
 
 public class CultureMiddleware
 {
@@ -10,6 +12,17 @@ public class CultureMiddleware
 
     public async Task invoke(HttpContext context)
     {
+        var culture = context.Request.Headers.AcceptLanguage.FirstOrDefault();
+        var cultureInfo = new CultureInfo("en");
 
+        if(string.IsNullOrWhiteSpace(culture) == false)
+        {
+            cultureInfo = new CultureInfo(culture);
+        }
+
+        CultureInfo.CurrentCulture = cultureInfo;
+        CultureInfo.CurrentUICulture = cultureInfo;
+
+        await _next(context); //permite fluxo continuar
     }
 }
