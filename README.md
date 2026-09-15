@@ -25,3 +25,4 @@ O projeto utiliza uma API REST desenvolvida em **C# com ASP.NET Core** e disponi
 * **Swagger**
 * **Visual Studio Code**
 * **GitHub**
+* **Postman**
