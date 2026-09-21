@@ -10,10 +10,9 @@ internal class ExpensesRepository : IExpensesRepository
     {
         _dbContext = dbContext;
     }
+
     public void Add(Expense expense)
     {
         _dbContext.Expenses.Add(expense);
-
-        _dbContext.SaveChanges();
     }
 }
