@@ -11,8 +11,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
-//DependencyInjectionExtension.AddInfrastructure(builder.Services);
-builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAplication();
 
 var app = builder.Build();
