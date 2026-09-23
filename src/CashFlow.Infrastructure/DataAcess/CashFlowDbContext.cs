@@ -5,6 +5,6 @@ namespace CashFlow.Infrastructure.DataAcess;
 
 public class CashFlowDbContext : DbContext
 {
-    public CashFlowDbContext(DbContextOptions options) : base(options){}
+    public CashFlowDbContext(DbContextOptions options) : base(options) { }
     public DbSet<Expense> Expenses { get; set; } // ele que faz a conexão com o banco de dados
 }

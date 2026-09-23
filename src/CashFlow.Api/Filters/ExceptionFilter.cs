@@ -10,7 +10,7 @@ public class ExceptionFilter : IExceptionFilter // interface, não é herança
 {
     public void OnException(ExceptionContext context)
     {
-        if(context.Exception is CashFlowException)
+        if (context.Exception is CashFlowException)
         {
             HandleProjectException(context);
         }

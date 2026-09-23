@@ -11,7 +11,7 @@ public class ErrorOnValidationException : CashFlowException
 
     public ErrorOnValidationException(List<string> errorMessages) : base(string.Empty)
     {
-       _errors = errorMessages;
+        _errors = errorMessages;
     }
 
     public override List<string> GetErrors()

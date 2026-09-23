@@ -1,5 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Register;
-using CashFlow.Communication.Enums;
+﻿using CashFlow.Communication.Enums;
 using CashFlow.Exception;
 using CommomTestUtilities.Requests;
 using FluentAssertions;
@@ -13,8 +12,8 @@ public class RegisterExpenseValidatorTests
     {
         //Arrange
         var validator = new RegisterExpenseValidator();
-        var request = RequestRegisterExpenseJsonBuilder.Build(); 
-       
+        var request = RequestRegisterExpenseJsonBuilder.Build();
+
         //Act
         var result = validator.Validate(request);
 
@@ -35,7 +34,7 @@ public class RegisterExpenseValidatorTests
         var result = validator.Validate(request);
 
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().ContainSingle().And.Contain(error => error.ErrorMessage.Equals(ResourceErrorMessages.TITLE)); 
+        result.Errors.Should().ContainSingle().And.Contain(error => error.ErrorMessage.Equals(ResourceErrorMessages.TITLE));
     }
 
     [Fact]
@@ -71,7 +70,7 @@ public class RegisterExpenseValidatorTests
     {
         var validator = new RegisterExpenseValidator();
         var request = RequestRegisterExpenseJsonBuilder.Build();
-        request.Amount = amount; 
+        request.Amount = amount;
 
         var result = validator.Validate(request);
 

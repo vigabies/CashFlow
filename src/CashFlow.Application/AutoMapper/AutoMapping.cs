@@ -13,15 +13,15 @@ public class AutoMapping : Profile
         EntityToResponse();
     }
 
-    private void RequestToEntity() 
+    private void RequestToEntity()
     {
-        CreateMap<RequestRegisterExpenseJson, Expense>();
+        CreateMap<RequestExpenseJson, Expense>();
     }
-    private void EntityToResponse() 
+    private void EntityToResponse()
     {
-        CreateMap<Expense, ResponseRegisteredExpenseJson>(); 
-        CreateMap<Expense, ResponseShortExpenseJson>();  
-        CreateMap<Expense, ResponseExpenseJson>();  
+        CreateMap<Expense, ResponseRegisteredExpenseJson>();
+        CreateMap<Expense, ResponseShortExpenseJson>();
+        CreateMap<Expense, ResponseExpenseJson>();
 
     }
 }
