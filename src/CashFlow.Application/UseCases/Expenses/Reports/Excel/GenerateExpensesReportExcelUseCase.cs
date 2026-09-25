@@ -13,6 +13,8 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
     }
     public async Task<byte[]> Execute(DateOnly month)
     {
+        var expenses = await _repository.FilterByMonth(month);
+        
         var workbook = new XLWorkbook();
 
         workbook.Style.Font.FontSize = 12;
