@@ -1,5 +1,4 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Reports.Excel;
-using CashFlow.Communication.Requests;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 
@@ -17,7 +16,7 @@ public class ReportController : ControllerBase
         [FromServices] IGenerateExpensesReportExcelUseCase useCase,
         [FromHeader] DateOnly month)
     {
-        byte[] file = new byte[1];
+        byte[] file = await useCase.Execute(month);
 
         if(file.Length > 0)
             return File(file, MediaTypeNames.Application.Octet, "report.xlsx");
