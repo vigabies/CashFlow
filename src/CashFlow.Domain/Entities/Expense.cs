@@ -10,4 +10,9 @@ public class Expense
     public DateTime Date { get; set; }
     public PaymentType PaymentType { get; set; }
     public decimal Amount { get; set; }
+
+    public global::ClosedXML.Excel.XLCellValue ConvertPaymentType(PaymentType paymentType)
+    {
+        throw new NotImplementedException();
+    }
 }

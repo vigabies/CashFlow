@@ -1,4 +1,5 @@
-﻿using CashFlow.Domain.Reports;
+﻿using CashFlow.Communication.Enums;
+using CashFlow.Domain.Reports;
 using CashFlow.Domain.Repositories.Expenses;
 using ClosedXML.Excel;
 
@@ -25,10 +26,34 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
 
         InsertHeader(worksheet);
 
+        var raw = 2;
+        foreach(var expense in expenses)
+        {
+            worksheet.Cell("$A{raw}").Value = expense.Title;
+            worksheet.Cell("$B{raw}").Value = expense.Date;
+            worksheet.Cell("$C{raw}").Value = ConvertPaymentType((PaymentType)expense.PaymentType);
+            worksheet.Cell("$D{raw}").Value = expense.Amount;
+            worksheet.Cell("$E{raw}").Value = expense.Description;
+
+            raw++;
+        }
+
         var file = new MemoryStream();
         workbook.SaveAs(file);
 
         return file.ToArray();
+    }
+
+    private  string ConvertPaymentType(PaymentType payment)
+    {
+        return payment switch
+        {
+            PaymentType.CashFlow => "Dinheiro",
+            PaymentType.CreditCard => "Cartão de Débito",
+            PaymentType.DebitCard => "Cartão de Crédito",
+            PaymentType.EletronicTransfer => "Transferência Bancária",
+            _ => string.Empty
+        };
     }
 
     private void InsertHeader(IXLWorksheet worksheet)
@@ -45,6 +70,5 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
         worksheet.Cells("A1:C1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
         worksheet.Cells("D1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
         worksheet.Cells("E1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
-
     }
 }
