@@ -2,6 +2,7 @@
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Exception;
 using CashFlow.Exception.ExceptionsBase;
+using CashFlow.Exception.ExceptionsBase.Messages;
 
 namespace CashFlow.Application.UseCases.Expenses.Delete;
 

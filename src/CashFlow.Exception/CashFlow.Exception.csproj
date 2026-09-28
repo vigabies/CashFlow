@@ -13,24 +13,54 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ResourceErrorMessages.Designer.cs">
+    <EmbeddedResource Remove="ExceptionsBase\Reports\ResourceReportGenerationMessages.fr.resx" />
+    <EmbeddedResource Remove="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-BR.resx" />
+    <EmbeddedResource Remove="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-PT.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ExceptionsBase\Reports\ResourceReportGenerationMessages.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-BR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-PT.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ExceptionsBase\Reports\ResourceReportGenerationMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceReportGenerationMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ExceptionsBase\Messages\ResourceErrorMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceErrorMessages.resx</DependentUpon>
     </Compile>
-    <Compile Update="ResourceErrorMessages.pt-BR.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceErrorMessages.pt-BR.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ResourceErrorMessages.pt-BR.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceErrorMessages.pt-BR.Designer.cs</LastGenOutput>
+    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.fr.resx">
+      <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ResourceErrorMessages.resx">
+    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.pt-PT.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ExceptionsBase\Reports\ResourceReportGenerationMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.pt-BR.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
