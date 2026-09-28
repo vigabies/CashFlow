@@ -13,32 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="ExceptionsBase\Reports\ResourceReportGenerationMessages.fr.resx" />
-    <EmbeddedResource Remove="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-BR.resx" />
-    <EmbeddedResource Remove="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-PT.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="ExceptionsBase\Reports\ResourceReportGenerationMessages.fr.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-BR.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ExceptionsBase\Reports\ResourceReportGenerationMessages.pt-PT.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="ExceptionsBase\Reports\ResourceReportGenerationMessages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceReportGenerationMessages.resx</DependentUpon>
-    </Compile>
     <Compile Update="ExceptionsBase\Messages\ResourceErrorMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -52,10 +26,6 @@
     </EmbeddedResource>
     <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.pt-PT.resx">
       <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ExceptionsBase\Reports\ResourceReportGenerationMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceReportGenerationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.pt-BR.resx">
       <Generator></Generator>
