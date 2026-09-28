@@ -147,4 +147,7 @@
   <data name="EXPENSES_FOR" xml:space="preserve">
     <value>Expenses For</value>
   </data>
+  <data name="TOTAL_SPENT_IN" xml:space="preserve">
+    <value>Total Spent In  {0}</value>
+  </data>
 </root>

@@ -9,7 +9,7 @@ namespace CashFlow.Application.UseCases.Expenses.Reports.Pdf;
 
 public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCase
 {
-    private const string CURRENCY_SYMBOL = "R$";
+    private const string CURRENCY_SYMBOL = "€";
 
     private readonly IExpensesReadOnlyRepository _repository;
     public GenerateExpensesReportPdfUseCase(IExpensesReadOnlyRepository repository)
@@ -28,6 +28,16 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         }
         var document = CreateDocument(month);
         var page = CreatePage(document);
+
+        var paragraph =  page.AddParagraph();
+        var title = string.Format(ResourceReportGenerationMessages.TOTAL_SPENT_IN, month.ToString("Y"));
+
+        paragraph.AddFormattedText(title, new Font { Name = FontHelper.RALEWAY_REGULAR, Size = 15 });
+
+        paragraph.AddLineBreak();
+
+        var totalExpenses = expenses.Sum(expenses => expenses.Amount);
+        paragraph.AddFormattedText($"{totalExpenses} {CURRENCY_SYMBOL}", new Font { Name = FontHelper.WORKSANS_BLACK, Size = 50 });
 
         return [];
     }
