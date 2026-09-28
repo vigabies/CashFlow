@@ -17,7 +17,7 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
     {
         var expenses = await _repository.FilterByMonth(month);
         
-        var workbook = new XLWorkbook();
+        using var workbook = new XLWorkbook();
 
         workbook.Style.Font.FontSize = 12;
         workbook.Style.Font.FontName = "Calibri";
@@ -36,7 +36,6 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
 
             worksheet.Cell("$D{raw}").Value = expense.Amount;
             worksheet.Cell("$D{raw}").Style.NumberFormat.Format = $"-{CURRENCY_SYMBOL} #.##0.00";
-
 
             worksheet.Cell("$E{raw}").Value = expense.Description;
 
