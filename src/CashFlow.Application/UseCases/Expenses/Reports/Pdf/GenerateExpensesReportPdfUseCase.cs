@@ -1,7 +1,6 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Fonts;
 using CashFlow.Domain.Reports;
 using CashFlow.Domain.Repositories.Expenses;
-using DocumentFormat.OpenXml.Drawing.Charts;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
 using PdfSharp.Fonts;
@@ -30,6 +29,17 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         var document = CreateDocument(month);
         var page = CreatePage(document);
 
+        var table = page.AddTable();
+        table.AddColumn();
+        table.AddColumn();
+
+        var row = table.AddRow();
+        row.Cells[0].AddImage("C:\\Users\\DoQR\\source\\repos\\user");
+
+        row.Cells[1].AddParagraph("Hey, Gabriela Silva");
+        row.Cells[1].Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 16 };
+
+
         var paragraph =  page.AddParagraph();
         var title = string.Format(ResourceReportGenerationMessages.TOTAL_SPENT_IN, month.ToString("Y"));
 
@@ -57,8 +67,6 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
 
     private Section CreatePage(Document document)
     {
-        document.AddSection();
-
         var section = document.AddSection();
         section.PageSetup = document.DefaultPageSetup.Clone();
 
