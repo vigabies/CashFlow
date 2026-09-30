@@ -34,7 +34,12 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         table.AddColumn();
 
         var row = table.AddRow();
-        row.Cells[0].AddImage("C:\\Users\\DoQR\\source\\repos\\user");
+        var image = row.Cells[0].AddImage(
+            "C:\\Users\\DoQR\\source\\repos\\Imagem\\user.png"
+         );
+
+        image.Width = Unit.FromPoint(62);
+        image.Height = Unit.FromPoint(62);
 
         row.Cells[1].AddParagraph("Hey, Gabriela Silva");
         row.Cells[1].Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 16 };
