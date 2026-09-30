@@ -25,6 +25,13 @@ O CashFlow permite cadastrar e gerenciar despesas, além de gerar relatórios fi
 * Postman
 * Git / GitHub
 
+## ✨ Features
+
+- **Domain-Driven Design (DDD)**: Estrutura organizada para facilitar a manutenção e evolução da aplicação.
+- **Testes de Unidade**: Testes utilizando **FluentAssertions** para garantir o funcionamento da aplicação.
+- **Geração de Relatórios**: Exportação das despesas em **PDF e Excel**.
+- **RESTful API com Swagger**: Documentação dos endpoints para facilitar o desenvolvimento e os testes.
+  
 ## 🚀 Endpoints
 
 ### Expenses
