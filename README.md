@@ -1,28 +1,55 @@
-# 💰 Cash Flow API
+# 💰 CashFlow API
 
-API para gerenciamento de **fluxo de caixa**, permitindo registrar, consultar, atualizar e excluir movimentações financeiras, facilitando o controle de entradas e saídas.
+API REST para gerenciamento de **despesas e fluxo financeiro**, desenvolvida com **C# e ASP.NET Core**.
 
 ## 📌 Sobre o projeto
 
-O **Cash Flow** foi desenvolvido com o objetivo de oferecer uma solução simples para gerenciamento financeiro.
+O CashFlow permite cadastrar e gerenciar despesas, além de gerar relatórios financeiros.
 
-A aplicação permite controlar movimentações de:
+### Funcionalidades
 
-* 💵 Entradas de dinheiro
-* 💸 Saídas de dinheiro
-* 📊 Valores e movimentações financeiras
-* 📅 Datas das movimentações
-* 📝 Descrições e informações relacionadas aos lançamentos
+* ➕ Criar despesas
+* 📋 Listar despesas
+* 🔎 Buscar despesa por ID
+* ✏️ Atualizar despesas
+* 🗑️ Excluir despesas
+* 📄 Gerar relatório em PDF
+* 📊 Gerar relatório em Excel
 
-O projeto utiliza uma API REST desenvolvida em **C# com ASP.NET Core** e disponibiliza sua documentação e testes através do **Swagger**.
+## 🛠️ Tecnologias
 
----
+* C#
+* .NET / ASP.NET Core
+* MySQL
+* Swagger / OpenAPI
+* Postman
+* Git / GitHub
 
-## 🛠️ Tecnologias utilizadas
-* **C#**
-* **.NET / ASP.NET Core**
-* **ASP.NET Core Web API**
-* **Swagger**
-* **Visual Studio Code**
-* **GitHub**
-* **Postman**
+## 🚀 Endpoints
+
+### Expenses
+
+```http
+POST   /api/Expenses
+GET    /api/Expenses
+GET    /api/Expenses/{id}
+PUT    /api/Expenses/{id}
+DELETE /api/Expenses/{id}
+```
+
+### Reports
+
+```http
+GET /api/Report/pdf
+GET /api/Report/excel
+```
+
+## 📖 Swagger
+
+A API possui documentação através do Swagger, permitindo visualizar e testar todos os endpoints.
+
+Após executar o projeto, acesse o endereço local disponibilizado pela aplicação:
+
+## 👩‍💻 Projeto
+
+Projeto desenvolvido para prática de desenvolvimento de **APIs REST com C# e ASP.NET Core**, incluindo integração com banco de dados e geração de relatórios.
