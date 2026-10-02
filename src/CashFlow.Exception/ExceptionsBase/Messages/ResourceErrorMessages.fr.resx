@@ -126,6 +126,13 @@
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Dépense introuvable</value>
   </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>Votre mot de passe doit comporter au moins 8 caractères, dont au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial (exemple : @, #, $, %, _).</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="NAME_EMPTY" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
   <data name="PAYMENT" xml:space="preserve">
     <value>Le type de paiement n'est pas valide.</value>
   </data>

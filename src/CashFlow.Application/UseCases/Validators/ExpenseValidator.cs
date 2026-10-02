@@ -2,7 +2,7 @@
 using CashFlow.Exception.ExceptionsBase.Messages;
 using FluentValidation;
 
-namespace CashFlow.Application.UseCases.Expenses;
+namespace CashFlow.Application.UseCases.Validators;
 
 public class ExpenseValidator : AbstractValidator<RequestExpenseJson>
 {

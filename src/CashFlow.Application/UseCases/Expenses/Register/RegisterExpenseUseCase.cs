@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CashFlow.Application.UseCases.Validators;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using CashFlow.Domain.Entities;
