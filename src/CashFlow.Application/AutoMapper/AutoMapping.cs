@@ -16,7 +16,8 @@ public class AutoMapping : Profile
     private void RequestToEntity()
     {
         CreateMap<RequestExpenseJson, Expense>();
-        CreateMap<ResponseRegisteredUserJson, User>();
+        CreateMap<ResponseRegisteredUserJson, User>()
+            .ForMember(dest => dest.Password, config => config.Ignore());
     }
     private void EntityToResponse()
     {
