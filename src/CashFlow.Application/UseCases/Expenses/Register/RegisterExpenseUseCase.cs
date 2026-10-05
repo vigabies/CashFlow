@@ -14,7 +14,6 @@ public class RegisterExpenseUseCase : IRegisterExpenseUseCase
     private readonly IExpenseWriteOnlyRepository _repository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
-
     public RegisterExpenseUseCase(
         IExpenseWriteOnlyRepository repository,
         IUnitOfWork unitOfWork,
