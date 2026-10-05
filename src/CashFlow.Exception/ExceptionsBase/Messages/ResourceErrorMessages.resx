@@ -125,11 +125,14 @@
     <value>Expenses cannot be for the future.</value>
     <comment>CANNOT FOR THE FUTURE</comment>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Email already exists</value>
+  </data>
   <data name="EMAIL_EMPTY" xml:space="preserve">
-    <value>E-mail is empty</value>
+    <value>Email is empty</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>E-mail is invalid</value>
+    <value>Email is invalid</value>
   </data>
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Expense not found</value>

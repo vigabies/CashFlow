@@ -123,8 +123,11 @@
   <data name="DATE" xml:space="preserve">
     <value>As despesas não podem ser referentes ao futuro.</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>O e-mail já existe</value>
+  </data>
   <data name="EMAIL_EMPTY" xml:space="preserve">
-    <value>E-mail está vazio</value>
+    <value>A caixa de entrada do e-mail está vazia.</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>E-mail inválido</value>

@@ -123,6 +123,15 @@
   <data name="DATE" xml:space="preserve">
     <value>Les dépenses ne peuvent pas concerner l'avenir.</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>L'e-mail existe déjà</value>
+  </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>La boîte mail est vide.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>L'e-mail n'est pas valide</value>
+  </data>
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Dépense introuvable</value>
   </data>
