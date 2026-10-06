@@ -2,6 +2,7 @@
 using CashFlow.Application.UseCases.Validators;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
+using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.User;
 using CashFlow.Domain.Security.Cryptography;
@@ -39,9 +40,9 @@ public class RegisterUserUseCase : IRegisterUserUseCase
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson request)
     {
-        await Validate(request);
+        await Validate(request);        
 
-        var user = _mapper.Map<Domain.Entities.User>(request);
+        User user = _mapper.Map<Domain.Entities.User>(request);
         user.Password = _passwordEncripter.Encrypt(request.Password);
         user.UserIdentifer = Guid.NewGuid();
         

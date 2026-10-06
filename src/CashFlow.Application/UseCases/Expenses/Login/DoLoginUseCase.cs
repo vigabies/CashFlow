@@ -37,5 +37,5 @@ public class DoLoginUseCase : IDoLoginUseCase
         {
             Name = user.Name,
             Token = _accessTokenGenerator.Generate(user)
-    }
-}
+        };
+} }
