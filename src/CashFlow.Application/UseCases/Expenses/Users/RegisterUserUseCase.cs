@@ -11,6 +11,7 @@ using CashFlow.Exception.ExceptionsBase;
 using CashFlow.Exception.ExceptionsBase.Messages;
 using FluentValidation.Results;
 
+
 namespace CashFlow.Application.UseCases.Expenses.Users;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
@@ -22,7 +23,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
     private readonly IAccessTokenGenerator _tokenGenerator;
     public RegisterUserUseCase(
-        IMapper mapper, 
+        IMapper mapper,
         IPasswordEncripter passwordEncripter,
         IUserReadOnlyRepository userReadOnlyRepository,
         IUnitOfWork unityOfWork,
@@ -40,12 +41,12 @@ public class RegisterUserUseCase : IRegisterUserUseCase
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson request)
     {
-        await Validate(request);        
+        await Validate(request);
 
-        User user = _mapper.Map<Domain.Entities.User>(request);
+        User user = _mapper.Map<User>(request);
         user.Password = _passwordEncripter.Encrypt(request.Password);
         user.UserIdentifer = Guid.NewGuid();
-        
+
         await _userWriteOnlyRepository.Add(user);
         await _unityOfWork.Commit();
 
@@ -58,14 +59,14 @@ public class RegisterUserUseCase : IRegisterUserUseCase
 
     private async Task Validate(RequestRegisterUserJson request)
     {
-      var result = new RegisterUserValidator().Validate(request);
-      var emailExist = await  _userReadOnlyRepository.ExistActiveUserWithEmail(request.Email);
-      
-        if(emailExist)
+        var result = new RegisterUserValidator().Validate(request);
+        var emailExist = await _userReadOnlyRepository.ExistActiveUserWithEmail(request.Email);
+
+        if (emailExist)
         {
             result.Errors.Add(new ValidationFailure(string.Empty, ResourceErrorMessages.EMAIL_ALREADY_REGISTERED));
         }
-    
+
         if (result.IsValid == false)
         {
             var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();

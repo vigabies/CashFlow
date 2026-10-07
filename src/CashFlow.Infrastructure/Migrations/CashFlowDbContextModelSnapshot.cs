@@ -17,87 +17,124 @@ namespace CashFlow.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.20")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("CashFlow.Domain.Entities.Expense", b =>
-                {
-                    b.Property<long>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+            {
+                b.Property<long>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("bigint");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("id"));
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(65,30)");
+                b.Property<decimal>("Amount")
+                    .HasColumnType("decimal(65,30)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
+                b.Property<DateTime>("Date")
+                    .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext");
+                b.Property<string>("Description")
+                    .HasColumnType("longtext");
 
-                    b.Property<int>("PaymentType")
-                        .HasColumnType("int");
+                b.Property<int>("PaymentType")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Title")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
+                b.Property<long>("UserId")
+                    .HasColumnType("bigint");
 
-                    b.HasKey("id");
+                b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                b.HasIndex("UserId");
 
-                    b.ToTable("Expenses");
-                });
+                b.ToTable("Expenses");
+            });
+
+            modelBuilder.Entity("CashFlow.Domain.Entities.Tag", b =>
+            {
+                b.Property<long>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("bigint");
+
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
+
+                b.Property<long>("ExpenseId")
+                    .HasColumnType("bigint");
+
+                b.Property<int>("Value")
+                    .HasColumnType("int");
+
+                b.HasKey("Id");
+
+                b.HasIndex("ExpenseId");
+
+                b.ToTable("Tags", (string)null);
+            });
 
             modelBuilder.Entity("CashFlow.Domain.Entities.User", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+            {
+                b.Property<long>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("bigint");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Email")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Password")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Role")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<Guid>("UserIdentifer")
-                        .HasColumnType("char(36)");
+                b.Property<Guid>("UserIdentifier")
+                    .HasColumnType("char(36)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Users");
-                });
+                b.ToTable("Users");
+            });
 
             modelBuilder.Entity("CashFlow.Domain.Entities.Expense", b =>
-                {
-                    b.HasOne("CashFlow.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("CashFlow.Domain.Entities.User", "User")
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("User");
-                });
+                b.Navigation("User");
+            });
+
+            modelBuilder.Entity("CashFlow.Domain.Entities.Tag", b =>
+            {
+                b.HasOne("CashFlow.Domain.Entities.Expense", "Expense")
+                    .WithMany("Tags")
+                    .HasForeignKey("ExpenseId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.Navigation("Expense");
+            });
+
+            modelBuilder.Entity("CashFlow.Domain.Entities.Expense", b =>
+            {
+                b.Navigation("Tags");
+            });
 #pragma warning restore 612, 618
         }
     }
