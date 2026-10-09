@@ -7,7 +7,11 @@ public class MapperBuilder
 {
     public static IMapper Build()
     {
-        var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapping()));
+        var mapperConfig = new MapperConfiguration(
+            cfg => cfg.AddProfile<AutoMapping>(),
+            null
+        );
+
         return mapperConfig.CreateMapper();
     }
 }

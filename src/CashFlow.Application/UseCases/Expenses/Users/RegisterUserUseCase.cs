@@ -19,23 +19,22 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly IMapper _mapper;
     private readonly IPasswordEncripter _passwordEncripter;
     private readonly IUserReadOnlyRepository _userReadOnlyRepository;
-    private readonly IUnitOfWork _unityOfWork;
     private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IAccessTokenGenerator _tokenGenerator;
     public RegisterUserUseCase(
-        IMapper mapper,
-        IPasswordEncripter passwordEncripter,
-        IUserReadOnlyRepository userReadOnlyRepository,
-        IUnitOfWork unityOfWork,
-        IUserWriteOnlyRepository userWriteOnlyRepository,
-        IAccessTokenGenerator tokenGenerator)
-
+       IMapper mapper,
+       IPasswordEncripter passwordEncripter,
+       IUserReadOnlyRepository userReadOnlyRepository,
+       IUserWriteOnlyRepository userWriteOnlyRepository,
+       IAccessTokenGenerator tokenGenerator,
+       IUnitOfWork unitOfWork)
     {
         _mapper = mapper;
         _passwordEncripter = passwordEncripter;
         _userReadOnlyRepository = userReadOnlyRepository;
-        _unityOfWork = unityOfWork;
-        _userWriteOnlyRepository = userWriteOnlyRepository;
+        _userWriteOnlyRepository = userWriteOnlyRepository; 
+        _unitOfWork = unitOfWork;
         _tokenGenerator = tokenGenerator;
     }
 
@@ -48,7 +47,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         user.UserIdentifer = Guid.NewGuid();
 
         await _userWriteOnlyRepository.Add(user);
-        await _unityOfWork.Commit();
+        await _unitOfWork.Commit();
 
         return new ResponseRegisteredUserJson
         {
