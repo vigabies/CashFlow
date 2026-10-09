@@ -1,6 +1,8 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Users;
+using CommomTestUtilities.Cryptography;
 using CommomTestUtilities.Repositories;
 using CommomTestUtilities.Requests;
+using CommomTestUtilities.Token;
 using CommonTestUtilities.Mapper;
 using FluentAssertions;
 
@@ -26,7 +28,9 @@ public class RegisterUserUseCaseTest
         var mapper = MapperBuilder.Build();
         var unitOfWork = UnitOfWorkBuilder.Build();
         var writeOnlyRepository = UserWriteOnlyRepositoryBuilder.Build();
+        var passwordEncripter = PasswordEncripterBuilder.Build();
+        var tokenGenerator = JwtTokenGeneratorBuilder.Build();
 
-        return new RegisterUserUseCase(mapper, null, null, writeOnlyRepository, null, unitOfWork);
+        return new RegisterUserUseCase(mapper, passwordEncripter, null, writeOnlyRepository, tokenGenerator, unitOfWork);
     }
 }
