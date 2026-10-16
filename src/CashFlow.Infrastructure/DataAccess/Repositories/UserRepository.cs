@@ -3,7 +3,7 @@ using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace CashFlow.Infrastructure.DataAcess.Repositories;
+namespace CashFlow.Infrastructure.DataAccess.Repositories;
 
 internal class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository
 {

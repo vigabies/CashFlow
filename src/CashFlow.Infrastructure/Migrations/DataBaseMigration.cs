@@ -1,4 +1,4 @@
-﻿using CashFlow.Infrastructure.DataAcess;
+﻿using CashFlow.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
