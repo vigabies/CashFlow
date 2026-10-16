@@ -2,10 +2,10 @@
 using CashFlow.Exception.ExceptionsBase;
 using CashFlow.Exception.ExceptionsBase.Messages;
 using CommomTestUtilities.Cryptography;
+using CommomTestUtilities.Mapper;
 using CommomTestUtilities.Repositories;
 using CommomTestUtilities.Requests;
 using CommomTestUtilities.Token;
-using CommonTestUtilities.Mapper;
 using FluentAssertions;
 
 namespace UserCases.Test.Users.Register;
@@ -59,7 +59,7 @@ public class RegisterUserUseCaseTest
         var mapper = MapperBuilder.Build();
         var unitOfWork = UnitOfWorkBuilder.Build();
         var writeOnlyRepository = UserWriteOnlyRepositoryBuilder.Build();
-        var passwordEncripter = PasswordEncripterBuilder.Build();
+        var passwordEncripter = new PasswordEncrypterBuilder().Build();
         var tokenGenerator = JwtTokenGeneratorBuilder.Build();
         var readRepository = new UserReadOnlyRepositoryBuilder();
 

@@ -15,8 +15,8 @@ public class DoLoginUseCase : IDoLoginUseCase
     private readonly IAccessTokenGenerator _accessTokenGenerator;
 
     public DoLoginUseCase(
-        IUserReadOnlyRepository repository, 
-        IPasswordEncripter passwordEncripter, 
+        IUserReadOnlyRepository repository,
+        IPasswordEncripter passwordEncripter,
         IAccessTokenGenerator accessTokenGenerator)
     {
         _repository = repository;
@@ -44,4 +44,5 @@ public class DoLoginUseCase : IDoLoginUseCase
             Name = user.Name,
             Token = _accessTokenGenerator.Generate(user)
         };
-} }
+    }
+}

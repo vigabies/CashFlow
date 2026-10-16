@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CashFlow.Application.AutoMapper;
 
-namespace CommonTestUtilities.Mapper;
+namespace CommomTestUtilities.Mapper;
 
 public class MapperBuilder
 {
