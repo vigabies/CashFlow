@@ -14,7 +14,10 @@ public class DoLoginUseCase : IDoLoginUseCase
     private readonly IPasswordEncripter _passwordEncripter;
     private readonly IAccessTokenGenerator _accessTokenGenerator;
 
-    public DoLoginUseCase(IUserReadOnlyRepository repository, IPasswordEncripter passwordEncripter, IAccessTokenGenerator accessTokenGenerator)
+    public DoLoginUseCase(
+        IUserReadOnlyRepository repository, 
+        IPasswordEncripter passwordEncripter, 
+        IAccessTokenGenerator accessTokenGenerator)
     {
         _repository = repository;
         _passwordEncripter = passwordEncripter;
@@ -23,11 +26,14 @@ public class DoLoginUseCase : IDoLoginUseCase
     public async Task<ResponseRegisteredUserJson> Execute(RequestLoginJson request)
     {
         var user = await _repository.GetUserByEmail(request.Email);
+
         if (user is null)
         {
             throw new InvalidLoginException();
         }
+
         var passwordMatch = _passwordEncripter.Verify(request.Password, user.Password);
+
         if (passwordMatch == false)
         {
             throw new InvalidLoginException();
