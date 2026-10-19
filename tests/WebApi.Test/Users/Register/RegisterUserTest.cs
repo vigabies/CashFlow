@@ -1,11 +1,14 @@
 ﻿using CommomTestUtilities.Requests;
+using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net;
 using System.Net.Http.Json;
 
 namespace WebApi.Test.Users.Register;
 
 public  class RegisterUserTest : IClassFixture<WebApplicationFactory<Program>>
 {
+    private const string METHOD = "api/User";
     private readonly HttpClient _httpClient;
 
     public RegisterUserTest(WebApplicationFactory<Program> webApplicationFactory)
@@ -18,9 +21,8 @@ public  class RegisterUserTest : IClassFixture<WebApplicationFactory<Program>>
     {
         var request = RequestRegisterUserJsonBuilder.Build();
 
-        var httpClient = new HttpClient();
-        httpClient.BaseAddress = new Uri("");
+        var result = await _httpClient.PostAsJsonAsync(METHOD, request);
 
-        httpClient.PostAsJsonAsync(,request);
+        result.StatusCode.Should().Be(HttpStatusCode.Created);
     }
 }
