@@ -2,6 +2,7 @@ using CashFlow.Api.Filters;
 using CashFlow.Api.Middleware;
 using CashFlow.Application;
 using CashFlow.Infrastructure;
+using CashFlow.Infrastructure.Extensions;
 using CashFlow.Infrastructure.Migrations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -15,7 +16,6 @@ builder.Services.AddSwaggerGen(config =>
 {
     const string schemeId = "Bearer";
 
-    // Add JWT Bearer token authentication option to Swagger
     config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -27,7 +27,6 @@ builder.Services.AddSwaggerGen(config =>
         Type = SecuritySchemeType.ApiKey,
     });
 
-    // Add a security requirement to Swagger that requires the Bearer token for all endpoints
     config.AddSecurityRequirement(document => new OpenApiSecurityRequirement
     {
         [new OpenApiSecuritySchemeReference(schemeId, document)] = []
@@ -71,7 +70,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-await MigrateDatabase();
+if(builder.Configuration.IsTestEnvironment() == false)
+{
+    await MigrateDatabase();
+}
 
 app.Run();
 async Task MigrateDatabase()
