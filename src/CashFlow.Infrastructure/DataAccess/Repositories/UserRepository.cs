@@ -1,5 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Users;
-using CashFlow.Domain.Entities;
+﻿using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories.User;
 using Microsoft.EntityFrameworkCore;
 
