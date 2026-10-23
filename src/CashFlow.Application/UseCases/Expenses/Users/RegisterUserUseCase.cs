@@ -8,7 +8,7 @@ using CashFlow.Domain.Repositories.User;
 using CashFlow.Domain.Security.Cryptography;
 using CashFlow.Domain.Security.Tokens;
 using CashFlow.Exception.ExceptionsBase;
-using CashFlow.Exception.ExceptionsBase.Messages;
+using CashFlow.Exception.Messages;
 using FluentValidation.Results;
 
 

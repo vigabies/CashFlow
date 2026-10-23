@@ -1,9 +1,8 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Exception.ExceptionsBase;
-using CashFlow.Exception.ExceptionsBase.Messages;
+using CashFlow.Exception.Messages;
 using CommomTestUtilities.Entities;
 using CommomTestUtilities.LoggedUser;
-using CommomTestUtilities.Mapper;
 using CommomTestUtilities.Repositories;
 using CommomTestUtilities.Requests;
 using FluentAssertions;

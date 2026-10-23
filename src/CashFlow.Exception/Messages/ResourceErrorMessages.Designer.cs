@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CashFlow.Exception.ExceptionsBase.Messages {
+namespace CashFlow.Exception.Messages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CashFlow.Exception.ExceptionsBase.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CashFlow.Exception.ExceptionsBase.Messages.ResourceErrorMessages", typeof(ResourceErrorMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CashFlow.Exception.Messages.ResourceErrorMessages", typeof(ResourceErrorMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -147,6 +147,15 @@ namespace CashFlow.Exception.ExceptionsBase.Messages {
         public static string PAYMENT {
             get {
                 return ResourceManager.GetString("PAYMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         

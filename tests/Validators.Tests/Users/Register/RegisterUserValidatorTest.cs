@@ -1,5 +1,5 @@
 ﻿using CashFlow.Application.UseCases.Validators;
-using CashFlow.Exception.ExceptionsBase.Messages;
+using CashFlow.Exception.Messages;
 using CommomTestUtilities.Requests;
 using FluentAssertions;
 

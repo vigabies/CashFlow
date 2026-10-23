@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using CashFlow.Application.AutoMapper;
-
-namespace CommomTestUtilities.Mapper;
+using Microsoft.Extensions.Logging.Abstractions;
 
 public class MapperBuilder
 {
     public static IMapper Build()
     {
-        var mapperConfig = new MapperConfiguration(
-            cfg => cfg.AddProfile<AutoMapping>(),
-            null
-        );
+        var mapper = new MapperConfiguration(config =>
+        {
+            config.AddProfile(new AutoMapping());
+        }, NullLoggerFactory.Instance);
 
-        return mapperConfig.CreateMapper();
+        return mapper.CreateMapper();
     }
 }
+

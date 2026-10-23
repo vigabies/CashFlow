@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ExceptionsBase\Messages\ResourceErrorMessages.Designer.cs">
+    <Compile Update="Messages\ResourceErrorMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceErrorMessages.resx</DependentUpon>
@@ -21,16 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.fr.resx">
+    <EmbeddedResource Update="Messages\ResourceErrorMessages.fr.resx">
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.pt-PT.resx">
+    <EmbeddedResource Update="Messages\ResourceErrorMessages.pt-PT.resx">
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.pt-BR.resx">
+    <EmbeddedResource Update="Messages\ResourceErrorMessages.pt-BR.resx">
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ExceptionsBase\Messages\ResourceErrorMessages.resx">
+    <EmbeddedResource Update="Messages\ResourceErrorMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>

@@ -1,4 +1,4 @@
-﻿using CashFlow.Exception.ExceptionsBase.Messages;
+﻿using CashFlow.Exception.Messages;
 using FluentValidation;
 using FluentValidation.Validators;
 using System.Text.RegularExpressions;

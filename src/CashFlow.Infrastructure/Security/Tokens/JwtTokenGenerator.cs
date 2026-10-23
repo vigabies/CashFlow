@@ -29,7 +29,7 @@ internal class JwtTokenGenerator : IAccessTokenGenerator
         {
             Expires = DateTime.UtcNow.AddMinutes(_expirationTimeMinutes),
             SigningCredentials = new SigningCredentials(SecurityKey(), SecurityAlgorithms.HmacSha256Signature),
-            Subject = new ClaimsIdentity()
+            Subject = new ClaimsIdentity(claims)
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();

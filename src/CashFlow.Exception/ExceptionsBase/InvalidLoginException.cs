@@ -1,4 +1,4 @@
-﻿using CashFlow.Exception.ExceptionsBase.Messages;
+﻿using CashFlow.Exception.Messages;
 using System.Net;
 
 namespace CashFlow.Exception.ExceptionsBase;

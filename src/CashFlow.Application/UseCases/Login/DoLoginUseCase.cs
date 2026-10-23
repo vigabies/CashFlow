@@ -5,7 +5,7 @@ using CashFlow.Domain.Security.Cryptography;
 using CashFlow.Domain.Security.Tokens;
 using CashFlow.Exception.ExceptionsBase;
 
-namespace CashFlow.Application.UseCases.Expenses.Login;
+namespace CashFlow.Application.UseCases.Login;
 
 public class DoLoginUseCase : IDoLoginUseCase
 {

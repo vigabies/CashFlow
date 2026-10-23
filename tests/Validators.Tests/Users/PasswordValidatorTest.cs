@@ -3,7 +3,7 @@ using CashFlow.Communication.Requests;
 using FluentAssertions;
 using FluentValidation;
 
-namespace Validators.Tests.Users.Register;
+namespace Validators.Tests.Users;
 
 public class PasswordValidatorTest
 {

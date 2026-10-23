@@ -3,7 +3,7 @@ using CashFlow.Communication.Responses;
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Domain.Services.LoggedUser;
 using CashFlow.Exception.ExceptionsBase;
-using CashFlow.Exception.ExceptionsBase.Messages;
+using CashFlow.Exception.Messages;
 
 namespace CashFlow.Application.UseCases.Expenses.GetById;
 
