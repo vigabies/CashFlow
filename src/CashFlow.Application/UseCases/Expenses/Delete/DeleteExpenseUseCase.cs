@@ -15,9 +15,9 @@ public class DeleteExpenseUseCase : IDeleteExpenseUseCase
 
     public DeleteExpenseUseCase(
         IExpensesWriteOnlyRepository repository,
+        IExpensesReadOnlyRepository expensesReadOnly,
         IUnitOfWork unitOfWork,
-        ILoggedUser loggedUser,
-        IExpensesReadOnlyRepository expensesReadOnly)
+        ILoggedUser loggedUser)
     {
         _repository = repository;
         _unitOfWork = unitOfWork;
@@ -36,12 +36,7 @@ public class DeleteExpenseUseCase : IDeleteExpenseUseCase
             throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
         }
 
-        var deleted = await _repository.Delete(id);
-
-        if (deleted is false)
-        {
-            throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
-        }
+        await _repository.Delete(id);
 
         await _unitOfWork.Commit();
     }
