@@ -50,7 +50,8 @@ public class UpdateExpenseTest : CashFlowClassFixture
 
         var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray();
 
-        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("TITLE_REQUIRED", new CultureInfo(culture));
+        var expectedMessage = ResourceErrorMessages.ResourceManager
+            .GetString("TITLE", new CultureInfo(culture));
 
         errors.Should().HaveCount(1).And.Contain(error => error.GetString()!.Equals(expectedMessage));
     }

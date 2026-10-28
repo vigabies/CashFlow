@@ -19,7 +19,10 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
     public async Task<byte[]> Execute(DateOnly month)
     {
         var loggedUser = await _loggedUser.Get();
+
         var expenses = await _repository.FilterByMonth(loggedUser, month);
+        if (expenses.Count == 0)
+            return [];
 
         using var workbook = new XLWorkbook();
 
