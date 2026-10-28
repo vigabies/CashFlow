@@ -22,7 +22,6 @@ public class UpdateExpenseTest : CashFlowClassFixture
         _expenseId = webApplicationFactory.Expense_MemberTeam.GetId();
     }
 
-
     [Fact]
     public async Task Success()
     {

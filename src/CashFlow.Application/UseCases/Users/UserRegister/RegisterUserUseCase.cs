@@ -12,7 +12,7 @@ using CashFlow.Exception.Messages;
 using FluentValidation.Results;
 
 
-namespace CashFlow.Application.UseCases.Expenses.Users;
+namespace CashFlow.Application.UseCases.Users.UserRegister;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
 {

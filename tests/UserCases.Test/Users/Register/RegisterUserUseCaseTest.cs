@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Users;
+﻿using CashFlow.Application.UseCases.Users.UserRegister;
 using CashFlow.Exception.ExceptionsBase;
 using CashFlow.Exception.Messages;
 using CommomTestUtilities.Cryptography;

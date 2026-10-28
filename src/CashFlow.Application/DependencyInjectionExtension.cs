@@ -6,8 +6,8 @@ using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Application.UseCases.Expenses.Reports.Excel;
 using CashFlow.Application.UseCases.Expenses.Reports.Pdf;
 using CashFlow.Application.UseCases.Expenses.Update;
-using CashFlow.Application.UseCases.Expenses.Users;
 using CashFlow.Application.UseCases.Login;
+using CashFlow.Application.UseCases.Users.UserRegister;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CashFlow.Application;
