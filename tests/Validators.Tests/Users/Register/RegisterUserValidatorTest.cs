@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.UseCases.Validators;
+﻿using CashFlow.Application.UseCases.Users.UserRegister;
 using CashFlow.Exception.Messages;
 using CommomTestUtilities.Requests;
 using FluentAssertions;

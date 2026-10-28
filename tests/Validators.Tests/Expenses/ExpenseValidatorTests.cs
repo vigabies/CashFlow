@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.UseCases.Validators;
+﻿using CashFlow.Application.UseCases.Expenses;
 using CashFlow.Communication.Enums;
 using CashFlow.Exception.Messages;
 using CommomTestUtilities.Requests;
