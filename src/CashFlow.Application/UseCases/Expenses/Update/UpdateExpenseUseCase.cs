@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using CashFlow.Application.UseCases.Validators;
 using CashFlow.Communication.Requests;
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
@@ -39,6 +38,8 @@ public class UpdateExpenseUseCase : IUpdateExpenseUseCase
         {
             throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
         }
+
+        expense.Tags.Clear();
 
         _mapper.Map(request, expense);
 
