@@ -153,4 +153,7 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>
   </data>
+  <data name="TAG_TYPE_NOT_SUPPORTED" xml:space="preserve">
+    <value>Este tipo de etiqueta não é suportado.</value>
+  </data>
 </root>

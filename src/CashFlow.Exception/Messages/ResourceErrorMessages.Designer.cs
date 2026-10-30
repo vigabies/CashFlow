@@ -151,11 +151,11 @@ namespace CashFlow.Exception.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to This tag type is not supported..
         /// </summary>
-        public static string String1 {
+        public static string TAG_TYPE_NOT_SUPPORTED {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("TAG_TYPE_NOT_SUPPORTED", resourceCulture);
             }
         }
         

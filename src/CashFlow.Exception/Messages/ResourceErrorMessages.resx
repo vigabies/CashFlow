@@ -157,4 +157,7 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error</value>
   </data>
+  <data name="TAG_TYPE_NOT_SUPPORTED" xml:space="preserve">
+    <value>This tag type is not supported.</value>
+  </data>
 </root>

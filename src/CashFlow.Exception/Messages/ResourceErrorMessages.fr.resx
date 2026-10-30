@@ -154,4 +154,7 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erreur inconnue</value>
   </data>
+  <data name="TAG_TYPE_NOT_SUPPORTED" xml:space="preserve">
+    <value>Ce type de tag n’est pas pris en charge.</value>
+  </data>
 </root>
