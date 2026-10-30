@@ -92,4 +92,20 @@ public class ExpenseValidatorTests
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.AMOUNT));
     }
+
+    [Fact]
+    public void Error_Tag_Invalid()
+    {
+        //Arrange
+        var validator = new ExpenseValidator();
+        var request = RequestExpenseJsonBuilder.Build();
+        request.Tags.Add((Tag)1000);
+
+        //Act
+        var result = validator.Validate(request);
+
+        //Assert
+        result.IsValid.Should().BeFalse();
+        result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.TAG_TYPE_NOT_SUPPORTED));
+    }
 }
